@@ -1,0 +1,19 @@
+{% extends 'flatpages/default.html' %}
+
+{% load custom_filters %}
+
+{% block title %}
+Post
+{% endblock title %}
+
+{% block content %}
+<h1>{{ post.title|censor }}</h1>
+<p>{{ post.text|censor }}</p>
+<p>Тип: {{ post.select|type_filter }}</p>
+<p>Категории: {% for category in post.category.all %}<a href="{% url 'categories_filter' category.pk %}">{{ category.name }}</a> {% endfor %}</p>
+
+<p>{{ post.datetime|date:'d M Y' }}</p>
+<button> <a href="{% url 'news_edit' post.pk %}">Редактироать</a> </button>
+<button> <a href="{% url 'post_delete' post.pk %}">Удалить</a> </button>
+{% endblock content %}
+

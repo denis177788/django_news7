@@ -1,0 +1,30 @@
+{% extends 'flatpages/default.html' %}
+
+{% block title %}
+Categories
+{% endblock title %}
+
+{% block content %}
+   <h1>Все категории ({{ categories|length }})</h1>
+
+   <hr>
+   {% if categories %}
+       <table>
+           <tr>
+               <td><b>Название</b></td>
+               <td><b>Подписки</b></td>
+           </tr>
+
+           {% for category in categories %}
+           <tr>
+               <td><a href="{% url 'categories_filter' category.pk %}">{{ category.name }}</a></td>
+               <td>{% for subscribers in category.subscribers.all %}{{ subscribers }}<br/>{% endfor %}</td>
+           </tr>
+           {% endfor %}
+
+       </table>
+   {% else %}
+       <h2>Категорий нет!</h2>
+   {% endif %}
+
+{% endblock content %}
