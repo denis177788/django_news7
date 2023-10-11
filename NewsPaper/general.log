@@ -1,0 +1,6 @@
+INFO 2023-10-11 22:50:02,344 autoreload  Watching for file changes with StatReloader
+INFO 2023-10-11 22:50:03,870 basehttp  "GET / HTTP/1.1" 302 0
+INFO 2023-10-11 22:50:04,006 basehttp  "GET /news/ HTTP/1.1" 200 10544
+INFO 2023-10-11 22:50:05,769 basehttp  "GET /profile/ HTTP/1.1" 200 678
+WARNING 2023-10-11 22:50:07,019 log  Not Found: /profile/news/
+WARNING 2023-10-11 22:50:07,021 basehttp  "GET /profile/news/ HTTP/1.1" 404 2693
